@@ -1,0 +1,195 @@
+<!-- @dsCard group="Экраны" height=1760 width=1600 page subtitle="Остальные экраны MVP: регистрация, камера, подключение, фильтры, команда" -->
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Экраны OpenVision — продолжение</title>
+<style>
+  body { background: var(--surface-sunken); }
+  .board { display: grid; grid-template-columns: repeat(4, 360px); gap: 40px 32px; padding: 32px; width: 1600px; }
+  .cap { font-size: 13px; line-height: 18px; color: var(--ink-muted); margin: 0 0 10px 4px; }
+  .cap b { color: var(--ink); font-weight: 600; margin-right: 6px; }
+  .ph { width: 360px; height: 760px; border-radius: 28px; border: 1px solid var(--line); background: var(--bg); overflow: hidden; display: flex; flex-direction: column; position: relative; }
+  .sb { height: 28px; flex: none; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; font-size: 12px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; position: relative; z-index: 2; }
+  .sb i { display: inline-block; width: 18px; height: 9px; border: 1.5px solid currentColor; border-radius: 2px; opacity: .8; }
+  .scroll { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+  .pad { padding: 0 16px; }
+  .gap { display: flex; flex-direction: column; gap: 14px; }
+  .muted { color: var(--ink-muted); font-size: 14px; line-height: 20px; margin: 0; }
+  .h1 { font-size: 28px; line-height: 34px; font-weight: 600; letter-spacing: -.01em; margin: 0; }
+  .q { font-size: 20px; line-height: 26px; font-weight: 600; margin: 0; }
+  .steps { display: flex; gap: 6px; padding: 4px 16px 0; }
+  .steps span { flex: 1; height: 4px; border-radius: 9999px; background: var(--line); }
+  .steps span.on { background: var(--brand); }
+  .bottom { margin-top: auto; padding: 16px; border-top: 1px solid var(--line); background: var(--surface); display: flex; gap: 12px; }
+  .kv { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; font-size: 15px; }
+  .kv span:first-child { color: var(--ink-muted); }
+  .kv span:last-child { text-align: right; }
+  .act { display: flex; align-items: center; gap: 12px; padding: 14px 16px; font-size: 15px; }
+  .act .ov-icon { color: var(--ink-muted); }
+  .act.danger, .act.danger .ov-icon { color: var(--danger); }
+  .act span { flex: 1; }
+  .ok { display: flex; gap: 12px; padding: 12px 16px; border-radius: 12px; background: var(--online-soft); }
+  .ok .ov-icon { color: var(--online); }
+  .ok b { display: block; font-size: 15px; }
+  .ok span { font-size: 14px; line-height: 20px; }
+  .warnline { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; line-height: 18px; color: var(--ink); background: var(--warn-soft); padding: 10px 12px; border-radius: 8px; }
+  .warnline .ov-icon { color: var(--warn); }
+  .probe { display: flex; gap: 12px; align-items: center; padding: 14px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); font-size: 15px; }
+  .probe .ov-spin { color: var(--brand); }
+  .agent { display: flex; gap: 12px; align-items: center; padding: 14px 16px; }
+  .agent-ic { width: 40px; height: 40px; border-radius: 8px; background: var(--surface-sunken); display: grid; place-items: center; flex: none; }
+  .agent b { display: block; font-weight: 500; }
+  .agent small { font-size: 13px; color: var(--ink-muted); }
+  .agent .ov-radio { margin: 0; }
+  .agent.on .ov-radio { border-color: var(--brand); }
+  .agent.on .ov-radio::after { content: ""; width: 10px; height: 10px; border-radius: 9999px; background: var(--brand); }
+  .scrim { position: absolute; inset: 0; background: var(--scrim); z-index: 1; }
+  .sheet { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; background: var(--surface); border-radius: 20px 20px 0 0; box-shadow: var(--shadow-sheet); display: flex; flex-direction: column; }
+  .grab { width: 36px; height: 4px; border-radius: 9999px; background: var(--line-strong); margin: 8px auto 4px; }
+  .sheet-h { display: flex; align-items: center; justify-content: space-between; padding: 8px 8px 8px 20px; }
+  .sheet-h b { font-size: 20px; line-height: 26px; }
+  .lbl { font-size: 13px; font-weight: 600; padding: 12px 20px 8px; color: var(--ink-muted); }
+  .chk { display: flex; align-items: center; gap: 12px; padding: 0 20px; min-height: 48px; font-size: 15px; }
+  .chk .nm { flex: 1; }
+  .box { width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--line-strong); display: grid; place-items: center; flex: none; color: var(--on-brand); }
+  .box.on { background: var(--brand); border-color: var(--brand); }
+  .seg { display: flex; margin: 0 20px; padding: 3px; border-radius: 10px; background: var(--surface-sunken); }
+  .seg span { flex: 1; text-align: center; padding: 8px 0; border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--ink-muted); }
+  .seg span.on { background: var(--surface); color: var(--ink); box-shadow: 0 0 0 1px var(--line); }
+  .role { display: flex; gap: 12px; align-items: flex-start; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 12px; }
+  .role.on { background: var(--brand-soft); border-color: var(--brand); box-shadow: 0 0 0 1px var(--brand); }
+  .role .ov-radio { margin-top: 1px; }
+  .role.on .ov-radio { border-color: var(--brand); }
+  .role.on .ov-radio::after { content: ""; width: 10px; height: 10px; border-radius: 9999px; background: var(--brand); }
+  .role b { display: block; font-size: 15px; font-weight: 600; }
+  .role small { font-size: 13px; line-height: 18px; color: var(--ink-muted); }
+  .link { color: var(--brand); font-weight: 600; font-size: 14px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+var O = window.OpenVision, h = React.createElement, F = React.Fragment;
+function Phone(cap, sub, kids) {
+  return h('div', null, h('p', { className: 'cap' }, h('b', null, cap), sub),
+    h('div', { className: 'ph' }, h('div', { className: 'sb' }, h('span', null, '9:41'), h('i')), kids));
+}
+function Steps(n, of) { var a = []; for (var i = 0; i < of; i++) a.push(h('span', { key: i, className: i < n ? 'on' : '' })); return h('div', { className: 'steps' }, a); }
+
+/* 9 — Регистрация */
+var reg = Phone('9 · Регистрация', 'POST /auth/register', h('div', { className: 'scroll' },
+  h(O.AppBar, { title: '', back: true }),
+  h('div', { className: 'pad gap' },
+    h('div', null, h('h1', { className: 'h1' }, 'Новая компания'), h('p', { className: 'muted', style: { marginTop: 6 } }, 'Вы станете владельцем аккаунта и сможете пригласить коллег.')),
+    h(O.TextField, { label: 'Название компании', defaultValue: 'Acme LLP' }),
+    h(O.TextField, { label: 'Ваше имя', defaultValue: 'Аида Серикова' }),
+    h(O.TextField, { label: 'Эл. почта', type: 'email', defaultValue: 'aida@acme.kz', error: 'Аккаунт с этой почтой уже есть' }),
+    h(O.TextField, { label: 'Пароль', type: 'password', defaultValue: 'secret-pass-1', hint: 'Не меньше 10 символов' })),
+  h('div', { className: 'bottom', style: { flexDirection: 'column', alignItems: 'stretch' } },
+    h(O.Button, { block: true }, 'Создать аккаунт'),
+    h('p', { className: 'muted', style: { textAlign: 'center', fontSize: 13 } }, 'Уже есть аккаунт? ', h('span', { className: 'link' }, 'Войти')))));
+
+/* 10 — Камера: детали */
+var cam = Phone('10 · Камера', 'GET /cameras/{id} · PATCH · DELETE', h('div', { className: 'scroll' },
+  h(O.AppBar, { title: 'Склад', back: true, actions: [{ icon: 'more', label: 'Ещё' }] }),
+  h('div', { className: 'pad gap', style: { gap: 12 } },
+    h('div', { style: { position: 'relative' } }, h(O.FrameViewer, { time: 'последний кадр · 12:40' })),
+    h('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between' } }, h(O.StatusBadge, { status: 'offline' }), h(O.Switch, { label: 'Включена', defaultChecked: true })),
+    h(O.StatusReason, { reason: 'no_video', lastSeen: '3 ч назад' })),
+  h('div', { className: 'ov-list', style: { marginTop: 16 } },
+    h('div', { className: 'kv' }, h('span', null, 'Место'), h('span', null, 'Погрузка')),
+    h('div', { className: 'kv' }, h('span', null, 'Подключение'), h('span', null, 'Через блок · Warehouse PC')),
+    h('div', { className: 'kv' }, h('span', null, 'Видео'), h('span', { className: 'ov-num' }, '1920×1080 · 25 fps · H.264'))),
+  h('div', { className: 'ov-list', style: { marginTop: 16 } },
+    h('div', { className: 'act' }, h(O.Icon, { name: 'face' }), h('span', null, 'События этой камеры'), h(O.Icon, { name: 'chevron-right' })),
+    h('div', { className: 'act' }, h(O.Icon, { name: 'settings' }), h('span', null, 'Название и адрес'), h(O.Icon, { name: 'chevron-right' })),
+    h('div', { className: 'act danger' }, h(O.Icon, { name: 'trash' }), h('span', null, 'Удалить камеру')))));
+
+/* 11 — Pull: ввод адреса и проба */
+var pull1 = Phone('11 · Адрес камеры', 'POST /cameras/probe (до ~12 с)', h('div', { className: 'scroll' },
+  h(O.AppBar, { title: 'Новая камера', back: true }), Steps(2, 3),
+  h('div', { className: 'pad gap', style: { paddingTop: 20 } },
+    h('h2', { className: 'q' }, 'Адрес видеопотока'),
+    h('p', { className: 'muted' }, 'Найдите RTSP-адрес в настройках камеры или регистратора. Логин и пароль можно указать прямо в адресе.'),
+    h(O.TextField, { label: 'Название', defaultValue: 'Вход — главный' }),
+    h(O.TextField, { label: 'Место (необязательно)', placeholder: 'Например, «Главная дверь»' }),
+    h(O.TextField, { label: 'RTSP-адрес', mono: true, defaultValue: 'rtsp://admin:••••@203.0.113.5:554/Streaming/Channels/101' }),
+    h('div', { className: 'probe' }, h(O.Icon, { name: 'refresh', size: 20, className: 'ov-spin' }), h('span', null, 'Подключаемся к камере…'))),
+  h('div', { className: 'bottom' }, h(O.Button, { variant: 'secondary', loading: true, style: { flex: 1 } }, 'Проверяем'), h(O.Button, { disabled: true, style: { flex: 1 } }, 'Сохранить'))));
+
+/* 12 — Pull: результат пробы */
+var pull2 = Phone('12 · Результат проверки', 'probe: ok / warnings / ошибка', h('div', { className: 'scroll' },
+  h(O.AppBar, { title: 'Новая камера', back: true }), Steps(2, 3),
+  h('div', { className: 'pad gap', style: { paddingTop: 20 } },
+    h('h2', { className: 'q' }, 'Камера отвечает'),
+    h('div', { className: 'ok' }, h(O.Icon, { name: 'check', size: 22 }), h('div', null, h('b', null, 'Подключение работает'), h('span', { className: 'ov-num' }, '1920×1080 · 8 fps · H.264'))),
+    h('div', { className: 'warnline' }, h(O.Icon, { name: 'alert', size: 18 }), 'Меньше 10 кадров в секунду — распознавание будет хуже. Повысьте частоту в настройках камеры, если можно.'),
+    h('p', { className: 'muted', style: { marginTop: 8 } }, 'Если бы проверка не прошла:'),
+    h(O.StatusReason, { reason: 'private_address_refused', action: h(O.Button, { size: 'sm', variant: 'secondary', icon: 'box' }, 'Подключить через блок') })),
+  h('div', { className: 'bottom' }, h(O.Button, { block: true }, 'Сохранить камеру'))));
+
+/* 13 — Edge: установка блока */
+var edge1 = Phone('13 · Блок OpenVision', 'POST /edge-agents', h('div', { className: 'scroll' },
+  h(O.AppBar, { title: 'Новая камера', back: true }), Steps(2, 3),
+  h('div', { className: 'pad gap', style: { paddingTop: 20 } },
+    h('h2', { className: 'q' }, 'Установите блок в вашей сети'),
+    h('p', { className: 'muted' }, 'Обычно это делает IT-специалист: одна команда на компьютере, который видит камеры. Один блок обслуживает все камеры объекта.'),
+    h(O.TextField, { label: 'Название блока', defaultValue: 'Склад — ПК охраны' }),
+    h(O.CopyField, { label: 'Команда установки', value: 'docker run -d --restart=always --name openvision-edge -e OV_TOKEN=ova_9fK3…xQ openvision/edge:latest', hint: 'Токен в команде покажем только один раз.' }),
+    h('div', { className: 'probe' }, h(O.Icon, { name: 'refresh', size: 20, className: 'ov-spin' }), h('div', null, h('div', null, 'Ждём, когда блок выйдет на связь'), h('div', { className: 'muted', style: { fontSize: 13 } }, 'Обычно до 30 секунд после запуска')))),
+  h('div', { className: 'bottom' }, h(O.Button, { variant: 'secondary', icon: 'share' }, 'Отправить IT'), h(O.Button, { disabled: true, style: { flex: 1 } }, 'Далее'))));
+
+/* 14 — Edge: камера через блок */
+var edge2 = Phone('14 · Камера через блок', 'POST /cameras {mode: edge}', h('div', { className: 'scroll' },
+  h(O.AppBar, { title: 'Новая камера', back: true }), Steps(3, 3),
+  h('div', { style: { padding: '20px 16px 8px' } }, h('h2', { className: 'q' }, 'Какой блок читает камеру?')),
+  h('div', { className: 'ov-list' },
+    h('div', { className: 'agent on' }, h('span', { className: 'agent-ic' }, h(O.Icon, { name: 'box' })), h('div', { style: { flex: 1 } }, h('b', null, 'Склад — ПК охраны'), h(O.StatusBadge, { status: 'online' })), h('span', { className: 'ov-radio' })),
+    h('div', { className: 'agent' }, h('span', { className: 'agent-ic' }, h(O.Icon, { name: 'box' })), h('div', { style: { flex: 1 } }, h('b', null, 'Офис'), h(O.StatusBadge, { status: 'offline' }, 'Не в сети · 2 дня')), h('span', { className: 'ov-radio' })),
+    h('div', { className: 'act' }, h(O.Icon, { name: 'plus' }), h('span', { className: 'link' }, 'Установить новый блок'))),
+  h('div', { className: 'pad gap', style: { paddingTop: 16 } },
+    h(O.TextField, { label: 'Название камеры', defaultValue: 'Погрузка' }),
+    h(O.TextField, { label: 'Локальный адрес камеры', mono: true, defaultValue: 'rtsp://admin:••••@192.168.1.64:554/stream1', hint: 'Адрес из локальной сети — его увидит только блок. Проверка появится после подключения.' })),
+  h('div', { className: 'bottom' }, h(O.Button, { block: true }, 'Сохранить камеру'))));
+
+/* 15 — Фильтры ленты */
+var filters = Phone('15 · Фильтры событий', 'camera_id[] · known · since/until', h(F, null,
+  h('div', { className: 'scroll' }, h(O.AppBar, { title: 'События', large: true, actions: [{ icon: 'filter', label: 'Фильтры' }] }),
+    h('div', { className: 'ov-list' }, h(O.EventRow, { known: false, cameraName: 'Вход — главный', time: '15:42' }), h(O.EventRow, { known: true, confidence: .87, cameraName: 'Касса', time: '15:38' }))),
+  h('div', { className: 'scrim' }),
+  h('div', { className: 'sheet' },
+    h('div', { className: 'grab' }),
+    h('div', { className: 'sheet-h' }, h('b', null, 'Фильтры'), h(O.Button, { variant: 'ghost', size: 'sm' }, 'Сбросить')),
+    h('div', { className: 'lbl' }, 'Период'),
+    h('div', { className: 'seg' }, h('span', { className: 'on' }, 'Сегодня'), h('span', null, 'Вчера'), h('span', null, '7 дней'), h('span', null, 'Даты')),
+    h('div', { className: 'lbl' }, 'Люди'),
+    h('div', { className: 'seg' }, h('span', null, 'Все'), h('span', null, 'Известные'), h('span', { className: 'on' }, 'Неизвестные')),
+    h('div', { className: 'lbl' }, 'Камеры'),
+    h('div', { className: 'chk' }, h('span', { className: 'box on' }, h(O.Icon, { name: 'check', size: 16, strokeWidth: 2.5 })), h('span', { className: 'nm' }, 'Вход — главный'), h(O.StatusBadge, { status: 'online' })),
+    h('div', { className: 'chk' }, h('span', { className: 'box on' }, h(O.Icon, { name: 'check', size: 16, strokeWidth: 2.5 })), h('span', { className: 'nm' }, 'Касса'), h(O.StatusBadge, { status: 'online' })),
+    h('div', { className: 'chk' }, h('span', { className: 'box' }), h('span', { className: 'nm' }, 'Склад'), h(O.StatusBadge, { status: 'offline' })),
+    h('div', { style: { padding: 16, marginTop: 8, borderTop: '1px solid var(--line)' } }, h(O.Button, { block: true }, 'Показать события')))));
+
+/* 16 — Пригласить */
+var invite = Phone('16 · Новый участник', 'POST /users · users.write', h(F, null,
+  h('div', { className: 'scroll' }, h(O.AppBar, { title: 'Команда', large: true })),
+  h('div', { className: 'scrim' }),
+  h('div', { className: 'sheet', style: { top: 32 } },
+    h('div', { className: 'grab' }),
+    h('div', { className: 'sheet-h' }, h('b', null, 'Новый участник'), h('button', { className: 'ov-iconbtn', 'aria-label': 'Закрыть' }, h(O.Icon, { name: 'close' }))),
+    h('div', { className: 'gap', style: { padding: '0 20px', gap: 12 } },
+      h(O.TextField, { label: 'Имя', defaultValue: 'Тимур Ахметов' }),
+      h(O.TextField, { label: 'Эл. почта', type: 'email', defaultValue: 'timur@acme.kz' }),
+      h('div', { className: 'ov-field-label' }, 'Роль'),
+      h('div', { className: 'gap', style: { gap: 8, marginTop: -8 } },
+        h('div', { className: 'role' }, h('span', { className: 'ov-radio' }), h('div', null, h('b', null, 'Администратор'), h('small', null, 'Камеры, команда, журнал'))),
+        h('div', { className: 'role on' }, h('span', { className: 'ov-radio' }), h('div', null, h('b', null, 'Оператор'), h('small', null, 'События, вкл/выкл камер'))),
+        h('div', { className: 'role' }, h('span', { className: 'ov-radio' }), h('div', null, h('b', null, 'Наблюдатель'), h('small', null, 'Только просмотр')))),
+      h(O.TextField, { label: 'Начальный пароль', type: 'password', defaultValue: 'temp-pass-2026', hint: 'Передайте коллеге сами' })),
+    h('div', { style: { padding: 16, marginTop: 'auto', borderTop: '1px solid var(--line)' } }, h(O.Button, { block: true }, 'Добавить в команду')))));
+
+ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'board' }, reg, cam, pull1, pull2, edge1, edge2, filters, invite));
+</script>
+</body>
+</html>

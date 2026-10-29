@@ -1,0 +1,16 @@
+<!-- @dsCard group="Формы" height=300 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>TextField</title></head>
+<body>
+<div id="root" class="ov-stack"></div>
+<script>
+  var O = window.OpenVision, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h(O.TextField,{label:'Эл. почта',type:'email',defaultValue:'aida@acme.kz'}),
+h(O.TextField,{label:'Пароль',type:'password',defaultValue:'short',error:'Минимум 10 символов'}),
+h(O.TextField,{label:'Адрес камеры (RTSP)',mono:true,placeholder:'rtsp://user:pass@203.0.113.5:554/…',hint:'Логин и пароль камеры можно указать прямо в адресе'})
+  ));
+</script>
+</body>
+</html>

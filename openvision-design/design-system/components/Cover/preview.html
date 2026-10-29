@@ -1,0 +1,50 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>OpenVision</title>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font-sans); overflow: hidden; }
+  .cover { position: relative; width: 960px; height: 288px; overflow: hidden; }
+  .art { position: absolute; top: 0; left: 480px; width: 480px; height: 288px; overflow: hidden; }
+  .art svg { display: block; width: 480px; height: 288px; }
+  .brand { fill: var(--brand); }
+  .tint { fill: var(--brand-soft); }
+  .deep { fill: var(--ink); }
+  .scan { fill: var(--scan); }
+  .blk { rx: var(--radius-md); }
+  .sq { rx: var(--radius-xs); }
+  .ring { fill: none; stroke: var(--brand-soft); stroke-width: 8px; }
+  .words { position: absolute; left: var(--space-8); bottom: var(--space-8); max-width: 440px; }
+  .name { margin: 0; font-size: 72px; line-height: .95; font-weight: 600; letter-spacing: -.03em; color: var(--ink); }
+  .tag { margin: var(--space-3) 0 0 2px; font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      brand 192×272 bled off the top (identity, largest) · ink 176×208 bled off the right edge (the dark of a CCTV frame) · brand-soft 96×104 (relief tint) · scan 48×48 once (it only marks a detected face) — ≈35% of 960×288
+  arrangement one tall cobalt slab with satellites, bottoms on one line space-8 above the edge, space-4 gutters
+  pattern     lens rings, from "a literal motif (lens)": three concentric rings at a space-6 pitch, brand-soft on the slab, centred on the slab like a lens; the scan square is the detected-face mark
+  scales      sides in space-4/space-8 multiples; gutters space-4; ring pitch space-6, stroke space-2; corners radius-md, scan square radius-xs
+-->
+<rect class="brand blk" x="0" y="-16" width="192" height="272" rx="12"/>
+<circle class="ring" cx="96" cy="128" r="24"/>
+<circle class="ring" cx="96" cy="128" r="48"/>
+<circle class="ring" cx="96" cy="128" r="72"/>
+<rect class="tint blk" x="208" y="152" width="96" height="104" rx="12"/>
+<rect class="scan sq" x="208" y="88" width="48" height="48" rx="4"/>
+<rect class="deep blk" x="320" y="48" width="176" height="208" rx="12"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">OpenVision</h1>
+<p class="tag">Камеры, события и люди — спокойно и точно.</p>
+</div>
+</div>
+</body>
+</html>

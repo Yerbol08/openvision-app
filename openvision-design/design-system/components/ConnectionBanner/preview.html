@@ -1,0 +1,14 @@
+<!-- @dsCard group="Статусы" height=150 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>ConnectionBanner</title></head>
+<body>
+<div id="root" class="ov-stack"></div>
+<script>
+  var O = window.OpenVision, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h(O.ConnectionBanner,{state:'live'}),h(O.ConnectionBanner,{state:'reconnecting'}),h(O.ConnectionBanner,{state:'offline'})
+  ));
+</script>
+</body>
+</html>

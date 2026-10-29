@@ -1,0 +1,14 @@
+<!-- @dsCard group="Добавление камеры" height=330 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>CopyField</title></head>
+<body>
+<div id="root" class="ov-stack"></div>
+<script>
+  var O = window.OpenVision, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h(O.CopyField,{label:'SRT',badge:'Рекомендуем',value:'srt://ingest.openvision.kz:8890?streamid=publish:cam/18:push:ovk_7Hq2…&pkt_size=1316'}),h(O.CopyField,{label:'RTSP — запасной вариант',value:'rtsp://push:ovk_7Hq2…@ingest.openvision.kz:8554/cam/18',hint:'Ключ покажем только один раз. Потеряли — выпустите новый.'})
+  ));
+</script>
+</body>
+</html>

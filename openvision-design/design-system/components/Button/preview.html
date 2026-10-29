@@ -1,0 +1,15 @@
+<!-- @dsCard group="Действия" height=160 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>Button</title></head>
+<body>
+<div id="root" class="ov-stack"></div>
+<script>
+  var O = window.OpenVision, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h('div',{className:'ov-row',style:{padding:0}},h(O.Button,null,'Добавить камеру'),h(O.Button,{variant:'secondary',icon:'refresh'},'Проверить'),h(O.Button,{variant:'ghost'},'Показать все'),h(O.Button,{variant:'danger',icon:'trash'},'Удалить')),
+h('div',{className:'ov-row',style:{padding:0}},h(O.Button,{loading:true},'Подключаемся к камере…'),h(O.Button,{size:'sm',variant:'secondary',icon:'share'},'Поделиться'),h(O.Button,{disabled:true},'Сохранить'))
+  ));
+</script>
+</body>
+</html>

@@ -1,0 +1,502 @@
+{
+  "@@locale": "ru",
+  "appName": "OpenVision",
+  "retry": "Повторить",
+  "cancel": "Отмена",
+  "delete": "Удалить",
+  "back": "Назад",
+  "close": "Закрыть",
+  "errGeneric": "Что-то пошло не так. Повторите попытку.",
+  "errNetwork": "Нет связи с сервером. Проверьте интернет.",
+  "errForbidden": "Для этого действия нет прав.",
+  "errNotFound": "Не найдено. Возможно, это уже удалили.",
+  "errInvalidCredentials": "Неверная почта или пароль",
+  "errRateLimited": "Слишком много попыток. Повторите через {seconds} с.",
+  "@errRateLimited": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "errAccountSuspended": "Аккаунт заблокирован. Обратитесь в поддержку.",
+  "errEmailTaken": "Аккаунт с этой почтой уже есть",
+  "errFieldRequired": "Заполните поле",
+  "errEmailInvalid": "Проверьте адрес почты",
+  "errPasswordShort": "Не меньше 10 символов",
+  "errPasswordLong": "Не больше 128 символов",
+  "errFieldInvalid": "Проверьте значение",
+  "sessionExpired": "Сессия завершена. Войдите снова.",
+  "splashOffline": "Не удалось связаться с сервером.",
+  "loginTitle": "Вход",
+  "loginSubtitle": "Камеры и события вашей компании",
+  "fieldEmail": "Эл. почта",
+  "fieldPassword": "Пароль",
+  "showPassword": "Показать пароль",
+  "hidePassword": "Скрыть пароль",
+  "loginButton": "Войти",
+  "loginNoAccount": "Нет аккаунта?",
+  "loginRegisterLink": "Зарегистрировать компанию",
+  "registerTitle": "Новая компания",
+  "registerSubtitle": "Вы станете владельцем аккаунта и сможете пригласить коллег.",
+  "fieldCompany": "Название компании",
+  "fieldFullName": "Ваше имя",
+  "passwordHint": "Не меньше 10 символов",
+  "registerButton": "Создать аккаунт",
+  "registerHaveAccount": "Уже есть аккаунт?",
+  "registerLoginLink": "Войти",
+  "tabOverview": "Обзор",
+  "tabCameras": "Камеры",
+  "tabEvents": "События",
+  "tabTeam": "Команда",
+  "tabBadgeA11y": "{count, plural, one{{count} камера не работает} few{{count} камеры не работают} other{{count} камер не работают}}",
+  "@tabBadgeA11y": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "overviewSubtitle": "Сегодня, {date} · {company}",
+  "@overviewSubtitle": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "company": {
+        "type": "String"
+      }
+    }
+  },
+  "statEvents": "События",
+  "statCamerasOnline": "Камеры в сети",
+  "statCamerasOffline": "{count} не в сети",
+  "@statCamerasOffline": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "statUniquePeople": "Уникальных людей",
+  "statKnown": "Известные",
+  "statKnownShare": "{percent}% событий",
+  "@statKnownShare": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "chartTitle": "События по часам",
+  "chartPeak": "пик {hour} — {count}",
+  "@chartPeak": {
+    "placeholders": {
+      "hour": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartA11y": "Событий по часам, максимум {count} в {hour}",
+  "@chartA11y": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "hour": {
+        "type": "String"
+      }
+    }
+  },
+  "attentionTitle": "Требуют внимания",
+  "attentionNone": "Все камеры работают",
+  "accountA11y": "Аккаунт",
+  "camerasPlanUsage": "{count} из {max} по тарифу",
+  "@camerasPlanUsage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "camerasEmpty": "Пока нет камер. Здесь будут ваши камеры и их состояние.",
+  "cameraLastEvent": "событие {time}",
+  "@cameraLastEvent": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "cameraEnabledA11y": "Камера включена",
+  "cameraToggleFailed": "Не удалось переключить камеру. Попробуйте ещё раз.",
+  "statusPending": "Настройка",
+  "statusConnecting": "Подключение",
+  "statusOnline": "В сети",
+  "statusOffline": "Не в сети",
+  "statusError": "Ошибка",
+  "statusDisabled": "Выключена",
+  "statusUnknown": "Неизвестно",
+  "reasonWaitingForVideoTitle": "Ждём видео",
+  "reasonWaitingForVideoText": "Проверьте, что регистратор отправляет поток на адрес, который мы выдали.",
+  "reasonEdgeAgentOfflineTitle": "Блок OpenVision не в сети",
+  "reasonEdgeAgentOfflineText": "Проверьте, что блок на объекте включён и подключён к интернету.",
+  "reasonNoVideoTitle": "Видео не поступает",
+  "reasonNoVideoText": "Проверьте питание и сеть камеры.",
+  "reasonWaitingForGpuTitle": "Ожидание мощностей анализа",
+  "reasonWaitingForGpuText": "Видео в порядке, анализ скоро начнётся. Ничего делать не нужно.",
+  "reasonSourceUnreachableTitle": "Камера недоступна",
+  "reasonSourceUnreachableText": "Проверьте адрес и что камера доступна из интернета.",
+  "reasonSourceAuthFailedTitle": "Неверный логин или пароль",
+  "reasonSourceAuthFailedText": "Камера отклонила имя пользователя или пароль.",
+  "reasonSourceNotFoundTitle": "Поток не найден",
+  "reasonSourceNotFoundText": "По этому пути у камеры нет потока. Проверьте URL.",
+  "reasonUnsupportedCodecTitle": "Неподдерживаемый формат",
+  "reasonUnsupportedCodecText": "Нужен H.264 или H.265. Смените кодек в настройках камеры.",
+  "reasonNoVideoTrackTitle": "В потоке нет видео",
+  "reasonNoVideoTrackText": "Поток подключился, но видеодорожки в нём нет.",
+  "reasonPrivateAddressTitle": "Это адрес локальной сети",
+  "reasonPrivateAddressText": "Из облака его не видно. Подключите камеру через блок OpenVision.",
+  "reasonIngestErrorTitle": "Сбой на нашей стороне",
+  "reasonIngestErrorText": "Мы уже получили уведомление и разбираемся.",
+  "reasonUnknownTitle": "Камера не работает",
+  "reasonUnknownText": "Обратитесь в поддержку.",
+  "reasonLastSeen": "Последний сигнал {time}",
+  "@reasonLastSeen": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "timeJustNow": "только что",
+  "timeMinutesAgo": "{n} мин назад",
+  "@timeMinutesAgo": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{n} ч назад",
+  "@timeHoursAgo": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "{n} дн. назад",
+  "@timeDaysAgo": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cameraLastFrame": "последний кадр · {time}",
+  "@cameraLastFrame": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "cameraEnabled": "Включена",
+  "cameraLocation": "Место",
+  "cameraConnection": "Подключение",
+  "connectionPull": "Адрес в интернете",
+  "connectionPush": "Регистратор отправляет поток",
+  "connectionEdge": "Через блок OpenVision",
+  "cameraVideo": "Видео",
+  "cameraVideoValue": "{width}×{height} · {fps} fps · {codec}",
+  "@cameraVideoValue": {
+    "placeholders": {
+      "width": {
+        "type": "int"
+      },
+      "height": {
+        "type": "int"
+      },
+      "fps": {
+        "type": "int"
+      },
+      "codec": {
+        "type": "String"
+      }
+    }
+  },
+  "cameraEvents": "События этой камеры",
+  "cameraDelete": "Удалить камеру",
+  "cameraDeleteTitle": "Удалить камеру «{name}»?",
+  "@cameraDeleteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cameraDeleteText": "Камера и её события будут удалены. Это нельзя отменить.",
+  "cameraDeleted": "Камера удалена",
+  "eventsTitle": "События",
+  "filtersA11y": "Фильтры",
+  "connLive": "Онлайн — события приходят сразу",
+  "connReconnecting": "Переподключаемся…",
+  "connOffline": "Нет интернета. Показаны сохранённые данные",
+  "filterTitle": "Фильтры",
+  "filterReset": "Сбросить",
+  "filterPeriod": "Период",
+  "periodAny": "Всё время",
+  "periodToday": "Сегодня",
+  "periodYesterday": "Вчера",
+  "period7d": "7 дней",
+  "periodDates": "Даты",
+  "filterPeople": "Люди",
+  "peopleAll": "Все",
+  "peopleKnown": "Известные",
+  "peopleUnknown": "Неизвестные",
+  "filterCameras": "Камеры",
+  "camerasAll": "Все камеры",
+  "camerasSelected": "{count, plural, one{{count} камера} few{{count} камеры} other{{count} камер}}",
+  "@camerasSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "filterShow": "Показать события",
+  "filterPerson": "Этот человек",
+  "filterPersonClear": "Убрать фильтр по человеку",
+  "eventKnown": "Известный человек",
+  "eventUnknown": "Неизвестный",
+  "eventTagNew": "Новый",
+  "eventTagKnown": "Известный",
+  "eventNewA11y": "Новое",
+  "dayToday": "Сегодня",
+  "dayYesterday": "Вчера",
+  "eventsEmpty": "Событий пока нет. Здесь появятся люди, которых увидят камеры.",
+  "eventsEmptyFiltered": "Нет событий по этим фильтрам.",
+  "eventsNewPill": "{count, plural, one{{count} новое событие} few{{count} новых события} other{{count} новых событий}}",
+  "@eventsNewPill": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "eventsLoadMoreFailed": "Не удалось загрузить.",
+  "eventTitleKnown": "Известный",
+  "eventTitleUnknown": "Неизвестный",
+  "eventPersonUnknown": "Неизвестный человек",
+  "eventSeenToday": "Сегодня {count, plural, one{{count} раз} few{{count} раза} other{{count} раз}} · первый раз в {time}",
+  "@eventSeenToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "eventCamera": "Камера",
+  "eventTime": "Время",
+  "eventKind": "Тип",
+  "kindFace": "Лицо",
+  "kindOther": "Событие",
+  "eventAllAppearances": "Все появления этого человека",
+  "frameA11y": "Кадр события",
+  "cropA11y": "Лицо",
+  "teamTitle": "Команда",
+  "teamMembers": "{count, plural, one{{count} участник} few{{count} участника} other{{count} участников}}",
+  "@teamMembers": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "roleOwner": "Владелец",
+  "roleAdmin": "Администратор",
+  "roleOperator": "Оператор",
+  "roleViewer": "Наблюдатель",
+  "memberYou": "(вы)",
+  "memberInactive": "Отключён · {email}",
+  "@memberInactive": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "accountSection": "Аккаунт",
+  "accountPlan": "Тариф",
+  "accountPlanValue": "{plan} · {count, plural, one{{count} камера} few{{count} камеры} other{{count} камер}}",
+  "@accountPlanValue": {
+    "placeholders": {
+      "plan": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "accountRetention": "Хранение событий",
+  "accountRetentionValue": "{days, plural, one{{days} день} few{{days} дня} other{{days} дней}}",
+  "@accountRetentionValue": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "signOut": "Выйти",
+  "next": "Далее",
+  "done": "Готово",
+  "save": "Сохранить",
+  "share": "Отправить",
+  "copy": "Копировать",
+  "copied": "Скопировано",
+  "saved": "Сохранено",
+  "addCameraA11y": "Добавить камеру",
+  "fabCamera": "Камера",
+  "addCameraTitle": "Новая камера",
+  "errCameraLimit": "{limit, plural, one{Ваш тариф позволяет {limit} камеру} few{Ваш тариф позволяет {limit} камеры} other{Ваш тариф позволяет {limit} камер}}",
+  "@errCameraLimit": {
+    "placeholders": {
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "errOwnerProtected": "Владельца нельзя изменить или удалить.",
+  "errSelfProtected": "Нельзя менять свою роль или удалять себя.",
+  "errWrongPassword": "Текущий пароль неверный",
+  "errRtspInvalid": "Адрес должен начинаться с rtsp://",
+  "modeQuestion": "Как камера подключена к интернету?",
+  "modeHint": "От ответа зависит способ подключения. Если не уверены — выберите первый вариант.",
+  "modeEdgeTitle": "Камеры только в нашей сети",
+  "modeEdgeText": "Поставим блок OpenVision, он передаст видео.",
+  "modeEdgeTag": "Чаще всего",
+  "modePushTitle": "Регистратор отправляет поток",
+  "modePushText": "Hikvision, Dahua, Milestone — дадим адрес.",
+  "modePullTitle": "У камеры есть адрес в интернете",
+  "modePullText": "Публичный IP или облачный регистратор.",
+  "fieldCameraName": "Название камеры",
+  "fieldName": "Название",
+  "fieldLocationOptional": "Место (необязательно)",
+  "locationPlaceholder": "Например, «Главная дверь»",
+  "pullTitle": "Адрес видеопотока",
+  "pullText": "Найдите RTSP-адрес в настройках камеры или регистратора. Логин и пароль можно указать прямо в адресе.",
+  "fieldRtsp": "RTSP-адрес",
+  "probeButton": "Проверить подключение",
+  "probing": "Проверяем",
+  "probeConnecting": "Подключаемся к камере…",
+  "saveCamera": "Сохранить камеру",
+  "probeOkTitle": "Камера отвечает",
+  "probeOkHeading": "Подключение работает",
+  "warnLowFps": "Меньше 10 кадров в секунду — распознавание будет хуже. Повысьте частоту в настройках камеры, если можно.",
+  "warnLowResolution": "Разрешение ниже 480p — распознавание будет хуже. Повысьте разрешение в настройках камеры, если можно.",
+  "probeUseEdge": "Подключить через блок",
+  "pushNameTitle": "Как назвать камеру?",
+  "pushNameText": "Название будет в списке камер и в событиях.",
+  "pushGetAddress": "Получить адрес",
+  "pushIntro": "Вставьте адрес в настройки регистратора. Камера станет зелёной, как только пойдёт видео.",
+  "pushRecommended": "Рекомендуем",
+  "pushRtspLabel": "RTSP — если SRT не поддерживается",
+  "pushKeyOnce": "Ключ показываем только один раз. Сохраните или отправьте его сейчас.",
+  "pushOnlineTitle": "Камера в сети",
+  "pushOnlineText": "Видео поступает, анализ начался.",
+  "pushShareSubject": "OpenVision: адрес для камеры «{name}»",
+  "@pushShareSubject": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "edgeInstallTitle": "Установите блок в вашей сети",
+  "edgeInstallText": "Обычно это делает IT-специалист: одна команда на компьютере, который видит камеры. Один блок обслуживает все камеры объекта.",
+  "fieldAgentName": "Название блока",
+  "agentNamePlaceholder": "Например, «Склад — ПК охраны»",
+  "edgeGetCommand": "Получить команду",
+  "edgeCommandLabel": "Команда установки",
+  "edgeTokenOnce": "Токен в команде покажем только один раз.",
+  "edgeWaitingTitle": "Ждём, когда блок выйдет на связь",
+  "edgeWaitingText": "Обычно до 30 секунд после запуска",
+  "edgeOnlineTitle": "Блок на связи",
+  "edgeOnlineText": "Теперь выберите его и добавьте камеру.",
+  "edgeShareIt": "Отправить IT",
+  "edgeShareSubject": "OpenVision: установка блока «{name}»",
+  "@edgeShareSubject": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "edgePickTitle": "Какой блок читает камеру?",
+  "edgeInstallNew": "Установить новый блок",
+  "agentOfflineSince": "Не в сети · {time}",
+  "@agentOfflineSince": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldLocalUrl": "Локальный адрес камеры",
+  "localUrlHint": "Адрес из локальной сети — его увидит только блок. Проверка появится после подключения.",
+  "cameraEdit": "Название и адрес",
+  "fieldNewUrl": "Новый адрес (необязательно)",
+  "newUrlHint": "Сейчас: {current}. Оставьте пустым, чтобы не менять.",
+  "@newUrlHint": {
+    "placeholders": {
+      "current": {
+        "type": "String"
+      }
+    }
+  },
+  "cameraRotateKey": "Выдать новый адрес",
+  "rotateTitle": "Выдать новый адрес?",
+  "rotateText": "Старый ключ сразу перестанет работать. Регистратор нужно будет настроить заново.",
+  "rotateConfirm": "Выдать",
+  "teamInviteA11y": "Пригласить",
+  "inviteTitle": "Новый участник",
+  "fieldPersonName": "Имя",
+  "fieldRole": "Роль",
+  "roleAdminHint": "Камеры, команда, журнал",
+  "roleOperatorHint": "События, вкл/выкл камер",
+  "roleViewerHint": "Только просмотр",
+  "fieldInitialPassword": "Начальный пароль",
+  "initialPasswordHint": "Передайте коллеге сами. Не меньше 10 символов.",
+  "inviteButton": "Добавить в команду",
+  "memberAdded": "Участник добавлен",
+  "memberActions": "Действия",
+  "memberChangeRole": "Сменить роль",
+  "memberDeactivate": "Отключить доступ",
+  "memberActivate": "Включить доступ",
+  "memberRemove": "Удалить из команды",
+  "memberRemoveTitle": "Удалить {name} из команды?",
+  "@memberRemoveTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "memberRemoveText": "Доступ пропадёт сразу. Вернуть можно только новым приглашением.",
+  "changePassword": "Сменить пароль",
+  "fieldCurrentPassword": "Текущий пароль",
+  "fieldNewPassword": "Новый пароль",
+  "changePasswordText": "На других устройствах после смены нужно будет войти заново.",
+  "passwordChanged": "Пароль изменён"
+}

@@ -1,0 +1,14 @@
+<!-- @dsCard group="Основа" height=150 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>MediaPlaceholder</title></head>
+<body>
+<div id="root" class="ov-stack"></div>
+<script>
+  var O = window.OpenVision, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h('div',{style:{display:'flex',gap:12,alignItems:'center'}},h(O.MediaPlaceholder,{kind:'scene',style:{width:160,height:90,borderRadius:8}}),h(O.MediaPlaceholder,{kind:'face',style:{width:56,height:56,borderRadius:4}}),h(O.MediaPlaceholder,{kind:'empty',style:{width:160,height:90,borderRadius:8}}))
+  ));
+</script>
+</body>
+</html>

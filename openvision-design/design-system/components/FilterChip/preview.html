@@ -1,0 +1,14 @@
+<!-- @dsCard group="Формы" height=80 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>FilterChip</title></head>
+<body>
+<div id="root" class="ov-stack"></div>
+<script>
+  var O = window.OpenVision, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h('div',{className:'ov-chips',style:{padding:0}},h(O.FilterChip,{selected:true},'Сегодня'),h(O.FilterChip,{menu:true,icon:'camera'},'Все камеры'),h(O.FilterChip,null,'Известные'),h(O.FilterChip,{count:118},'Неизвестные'))
+  ));
+</script>
+</body>
+</html>

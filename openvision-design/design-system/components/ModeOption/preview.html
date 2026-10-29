@@ -1,0 +1,14 @@
+<!-- @dsCard group="Добавление камеры" height=400 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>ModeOption</title></head>
+<body>
+<div id="root" class="ov-stack"></div>
+<script>
+  var O = window.OpenVision, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h('div',{role:'radiogroup',style:{display:'flex',flexDirection:'column',gap:12}},h(O.ModeOption,{icon:'box',title:'Камеры только в нашей сети',description:'Поставим блок OpenVision, он передаст видео. Ничего не открываем в интернет.',tag:'Чаще всего',selected:true}),h(O.ModeOption,{icon:'send',title:'Регистратор умеет отправлять поток',description:'Hikvision, Dahua, Milestone. Мы дадим адрес для отправки.'}),h(O.ModeOption,{icon:'link',title:'У камеры есть адрес в интернете',description:'Публичный IP или облачный регистратор — нужен rtsp://-адрес.'}))
+  ));
+</script>
+</body>
+</html>

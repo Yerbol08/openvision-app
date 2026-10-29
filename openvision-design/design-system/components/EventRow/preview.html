@@ -1,0 +1,14 @@
+<!-- @dsCard group="События" height=300 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>EventRow</title></head>
+<body>
+<div id="root" class=""></div>
+<script>
+  var O = window.OpenVision, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h('div',{className:'ov-list'},h(O.EventRow,{known:false,cameraName:'Вход — главный',time:'08:15',isNew:true,seenToday:4}),h(O.EventRow,{known:true,confidence:0.87,cameraName:'Касса',time:'08:02'}),h(O.EventRow,{known:false,cameraName:'Вход — главный',time:'07:48'}))
+  ));
+</script>
+</body>
+</html>
