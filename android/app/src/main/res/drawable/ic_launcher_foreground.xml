@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Сгенерировано openvision-design/design-system/logo/generate_icons.py -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:translateX="16.2000"
+        android:translateY="16.2000"
+        android:scaleX="0.073828"
+        android:scaleY="0.073828">
+        <path
+            android:pathData="M 280 512 Q 512 256 744 512 Q 512 768 280 512"
+            android:strokeColor="#ffffff"
+            android:strokeWidth="54"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+        <path
+            android:pathData="M 182 294 L 182 226 Q 182 182 226 182 L 294 182"
+            android:strokeColor="#ffffff"
+            android:strokeWidth="54"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+        <path
+            android:pathData="M 182 730 L 182 798 Q 182 842 226 842 L 294 842"
+            android:strokeColor="#ffffff"
+            android:strokeWidth="54"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+        <path
+            android:pathData="M 842 294 L 842 226 Q 842 182 798 182 L 730 182"
+            android:strokeColor="#ffffff"
+            android:strokeWidth="54"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+        <path
+            android:pathData="M 842 730 L 842 798 Q 842 842 798 842 L 730 842"
+            android:strokeColor="#ffffff"
+            android:strokeWidth="54"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+        <path
+            android:pathData="M 446 512 A 66 66 0 1 1 578 512 A 66 66 0 1 1 446 512 Z"
+            android:fillColor="#d4f53c" />
+    </group>
+</vector>
