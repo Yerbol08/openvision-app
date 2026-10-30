@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "OpenVision (10.8.0.53)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "toolArgs": ["--dart-define=OV_API_BASE=http://10.8.0.53:8000"]
+    }
+  ]
+}

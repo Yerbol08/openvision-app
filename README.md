@@ -12,6 +12,8 @@ flutter run --dart-define=OV_API_BASE=http://192.168.1.20:8000   # телефо�
 
 Демо-учётка: `demo@openvision.dev` / `demo-password-1`.
 
+Проверка на настоящем сервере — параметры в начале `test/live_server_test.dart`, без них она пропускается.
+
 ## Устройство
 
 - `lib/theme/` — `ov_tokens.dart` (из дизайн-системы, не править вручную) и тема на его основе.
